@@ -10,7 +10,8 @@ router.get('/:id', (req, res) => {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    database: 'test_mysql'
+    port:9999,
+    database: 'test-mysql'
   })
 
   const userId = req.params.id;
