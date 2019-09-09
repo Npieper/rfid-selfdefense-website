@@ -26,4 +26,8 @@ router.get('/client', function(req, res, next) {
   })
 });
 
+router.post('/client', function(req, res, next) {
+  // Hier user in Datenbank speichern
+});
+
 module.exports = router;

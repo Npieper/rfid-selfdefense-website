@@ -7,6 +7,8 @@ const expressLayouts = require('express-ejs-layouts')
 
 var indexRouter = require('./routes/index');
 var clientRouter = require('./routes/client');
+var creationRouter = require('./routes/creation');
+
 
 
 
@@ -28,6 +30,8 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', indexRouter);
 app.use('/', clientRouter);
+app.use('/', creationRouter);
+
 
 
 
