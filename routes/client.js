@@ -34,7 +34,7 @@ router.post('/client', function(req, res, next) {
         password: '431db98c'
     })
 
-    var chip_id = req.body.chipId;
+    var chip_id = req.body.chip;
     console.log(chip_id)
 
 
