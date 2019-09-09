@@ -22,8 +22,6 @@ router.get('/client', function(req, res, next) {
       return
     }
     console.log("Users fetched successfully!");
-    // res.json(rows);
-
     res.render('welcome', {clients: rows});
   })
 });
