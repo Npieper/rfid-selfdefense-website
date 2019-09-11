@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
-
+const myModule = require('../model/client-model');
 
 
 router.get('/client', function(req, res, next) {
@@ -34,20 +34,23 @@ router.post('/client', function(req, res, next) {
         password: '431db98c'
     })
 
-    var chip_id = req.body.chip;
-    console.log(chip_id)
+    var chip_id = req.body.chipID;
+    var vorname = req.body.vorname;
+    var nachname = req.body.nachname;
+    var email = req.body.email;
+    var geburtsdatum = req.body.geburtsdatum;
+    var geburtsort = req.body.geburtsort;
+    var nationalitaet = req.body.nationalitaet;
+    var beruf = req.body.beruf;
+    var strasse = req.body.strasse;
+    var plz = req.body.plz;
+    var telefon = req.body.telefon;
+    
 
 
-    const queryString = "UPDATE user set vorname = \"Test\" where chip_id = 1";
-    connection.query(queryString, (err, rows, fields) => {
-        if (err) {
-            console.log("Failed to Update " + err);
-            res.end()
-            return
-        }
-        console.log("User updated successfully!");
-        res.render('homepage');
-    })
+    myModule.updateUser(chip_id,vorname,nachname,email,geburtsdatum,geburtsort,nationalitaet,beruf,strasse,plz,telefon);
+
+    res.redirect('/');
 });
 
 module.exports = router;
