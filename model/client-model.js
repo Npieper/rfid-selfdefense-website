@@ -10,16 +10,17 @@ const connection = mysql.createPool({
     password: '431db98c'
 })
 
-const queryString = "UPDATE user set vorname = \"chip_ID\" where chip_id = 1";
-connection.query(queryString, (err, rows, fields) => {
+console.log(vorname)
+
+connection.query("UPDATE user set Vorname = ?, Nachname = ?, Email = ?, Geburtsdatum = ?, Geburtsort = ?, Nationalitaet = ?, Beruf = ?, Strasse = ?, Plz = ?, Telefon = ?  where ChipID =  ?", [vorname,nachname,email,geburtsdatum,geburtsort,nationalitaet,beruf,strasse,plz,telefon,chip_id]), (err, rows, fields) => {
     if (err) {
         console.log("Failed to Update " + err);
-        res.end()
+        connection.end()
         return
     }
     console.log("User updated successfully!");
     connection.end();
-})
+}
 }
 
 exports.printX = function () {
